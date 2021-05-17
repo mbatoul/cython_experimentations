@@ -2,9 +2,7 @@ name: cython_experimentations
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
   - compilers
-  - joblib
   - jupyter
   - numpy
   - cython
@@ -14,8 +12,4 @@ dependencies:
   - pyaml
   - pip
   - pip:
-      - --pre
-      - --index-url https://pypi.anaconda.org/scipy-wheels-nightly/simple
-      - scikit-learn
-      # Install pdist_agregation from source
       - -e ./
