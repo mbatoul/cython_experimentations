@@ -39,7 +39,7 @@ jobs:
           export MKL_NUM_THREADS=1
           export OPENBLAS_NUM_THREADS=1
 
-      - name: Run benchmark suite
+      - name: Run benchmarks
         run: python benchmarks/run.py
 
       - name: Convert notebook to html
