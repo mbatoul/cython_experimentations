@@ -2,6 +2,7 @@ name: cython_experimentations
 channels:
   - conda-forge
 dependencies:
+  - joblib
   - compilers
   - jupyter
   - numpy
