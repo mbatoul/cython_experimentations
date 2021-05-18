@@ -7,9 +7,9 @@ import numpy as np
 
 class Benchmark(BaseBenchmark):
     def __init__(self, name, functions, datasets):
-        self.name = name
         self.functions = functions
         self.datasets = datasets
+        super().__init__(name)
 
     def _run(self):
         for dataset in self.datasets:
