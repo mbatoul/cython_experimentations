@@ -1,4 +1,12 @@
+  
+# cython: language_level=3
+# cython: cdivision=True
 # cython: boundscheck=False
+# cython: wraparound=False
+# cython: profile=False
+# cython: linetrace=False
+# cython: binding=False
+# distutils: define_macros=CYTHON_TRACE_NOGIL=0
 
 cimport numpy as np
 import numpy as np
@@ -22,13 +30,12 @@ cdef void _pairwise_dist(
     floating[:, ::1] X_a, # IN
     floating[:, ::1] X_b, # IN
     floating[:, ::1] distances, # OUT
-    integral dummy
 ) nogil:
     cdef:
-        integral i, j
-        integral n_rows_X_a = X_a.shape[0]
-        integral n_rows_X_b = X_b.shape[0]
-        integral n_features = X_a.shape[1]
+        int i, j
+        int n_rows_X_a = X_a.shape[0]
+        int n_rows_X_b = X_b.shape[0]
+        int n_features = X_a.shape[1]
         
     for i in prange(n_rows_X_a, nogil=True):
         for j in range(n_rows_X_b):
@@ -42,6 +49,6 @@ def pairwise_dist(
     cdef:
         floating[:, ::1] distances = np.zeros([X_a.shape[0], X_b.shape[0]], dtype=float_dtype)
     
-    _pairwise_dist(X_a, X_b, distances, 42)
+    _pairwise_dist(X_a, X_b, distances)
     
     return np.asarray(distances)
