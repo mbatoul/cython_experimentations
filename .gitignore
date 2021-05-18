@@ -63,6 +63,8 @@ MANIFEST
 
 *.csv
 
-*.c
+*src/**/*.c
 
 *.sh
+
+*.txt
