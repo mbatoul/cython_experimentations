@@ -11,10 +11,22 @@ pairwise_dist:
       n_features: 2
     - generator: numpy.random.rand
       n_samples: 1000
+      n_features: 10
+    - generator: numpy.random.rand
+      n_samples: 1000
       n_features: 100
     - generator: numpy.random.rand
-      n_samples: 10000
+      n_samples: 1000
+      n_features: 1000
+    - generator: numpy.random.rand
+      n_samples: 10_000
+      n_features: 2
+    - generator: numpy.random.rand
+      n_samples: 10_000
+      n_features: 10
+    - generator: numpy.random.rand
+      n_samples: 10_000
       n_features: 100
     - generator: numpy.random.rand
-      n_samples: 10000
+      n_samples: 10_000
       n_features: 1000
