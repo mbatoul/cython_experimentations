@@ -2,7 +2,7 @@ pairwise_dist:
   name: pairwise_dist
   functions:
     - implementation: cython
-      source: lib.pairwise_dist._pairwise_dist
+      source: pdist.pairwise_dist
     - implementation: scipy
       source: scipy.spatial.distance.cdist
   datasets:
