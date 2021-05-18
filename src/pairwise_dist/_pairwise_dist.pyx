@@ -11,7 +11,7 @@ cdef void _compute_dist(
     floating[::1] X_a_row,
     floating[::1] X_b_row,
     integral n_features,
-    floating *dist
+    floating *dist,
 ) nogil:
     cdef integral i
     for i in range(n_features):
