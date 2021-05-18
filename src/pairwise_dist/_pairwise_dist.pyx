@@ -14,6 +14,7 @@ cdef void _compute_dist(
     floating *dist,
 ) nogil:
     cdef integral i
+    
     for i in range(n_features):
         dist[0] += fabs(X_a_row[i] - X_b_row[i])
 
