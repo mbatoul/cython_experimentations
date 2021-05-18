@@ -5,6 +5,20 @@ pairwise_dist:
       source: pdist.pairwise_dist
     - implementation: scipy
       source: scipy.spatial.distance.cdist
+    - implementation: sklearn sequential
+      source: sklearn.metrics.pairwise_distances
+      params:
+        metric:
+          - l1
+        n_jobs:
+          - 1
+    - implementation: sklearn parallel
+      source: sklearn.metrics.pairwise_distances
+      params:
+        metric:
+          - l1
+        n_jobs:
+          - -1
   datasets:
     - generator: numpy.random.rand
       n_samples: 1000
