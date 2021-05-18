@@ -1,8 +1,9 @@
 pairwise_dist:
+  name: pairwise_dist
   functions:
-    - implementation: Pairwise distances in Cython
+    - implementation: cython
       source: src.implementations.pairwise_dist
-    - implementation: Scipy's cdist
+    - implementation: scipy
       source: scipy.spatial.distance.cdist
   datasets:
     - generator: numpy.random.rand

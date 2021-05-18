@@ -6,12 +6,15 @@ ONE_GIGABYTE = 1e9
 
 
 class BaseBenchmark:
+    def __init__(self, name):
+        self.name = name
+
     def _run(self):
         raise NotImplementedError
 
     def _to_csv(self):
         self.results_.to_csv(
-            "benchmarks/results/results.csv",
+            f"benchmarks/results/{self.name}.csv",
             mode="w+",
             index=False,
         )

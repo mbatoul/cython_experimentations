@@ -6,7 +6,8 @@ import numpy as np
 
 
 class Benchmark(BaseBenchmark):
-    def __init__(self, functions, datasets):
+    def __init__(self, name, functions, datasets):
+        self.name = name
         self.functions = functions
         self.datasets = datasets
 
