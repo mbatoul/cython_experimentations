@@ -15,7 +15,7 @@ from cython.parallel cimport prange
 from cython cimport floating, integral
 cimport cython
 
-cdef void _compute_dist(
+cdef void _l1_distance(
     floating[::1] X_a_row,
     floating[::1] X_b_row,
     integral n_features,
@@ -39,7 +39,7 @@ cdef void _pairwise_dist(
         
     for i in prange(n_rows_X_a, nogil=True):
         for j in range(n_rows_X_b):
-            _compute_dist(X_a[i], X_b[j], n_features, &distances[i, j])
+            _l1_distance(X_a[i], X_b[j], n_features, &distances[i, j])
 
 def pairwise_dist(
     floating[:, ::1] X_a,
