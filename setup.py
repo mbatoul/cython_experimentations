@@ -4,7 +4,7 @@ from setuptools import Extension, setup
 
 extensions = [
     Extension(
-        "src/pairwise_dist/pairwise_dist",
+        "lib/pairwise_dist",
         sources=["src/pairwise_dist/_pairwise_dist.pyx"],
         include_dirs=[numpy.get_include()],
         extra_compile_args=["-fopenmp", "-O3", "-ftree-vectorize"],

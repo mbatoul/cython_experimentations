@@ -6,6 +6,7 @@ dependencies:
   - compilers
   - jupyter
   - numpy
+  - scikit-learn
   - cython
   - matplotlib
   - seaborn

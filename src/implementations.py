@@ -1,4 +1,4 @@
-from src.pairwise_dist.pairwise_dist import _pairwise_dist
+from lib.pairwise_dist import _pairwise_dist
 
 
 def pairwise_dist(X, Y):
