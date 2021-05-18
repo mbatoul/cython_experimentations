@@ -62,5 +62,3 @@ MANIFEST
 .vscode
 
 *.csv
-
-src/*/*.c
