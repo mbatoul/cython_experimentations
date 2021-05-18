@@ -15,16 +15,18 @@ from cython cimport floating, integral
 cimport cython
 
 cdef floating _l1_distance(
-    floating[::1] X_a_row,
-    floating[::1] X_b_row,
+    floating[:, ::1] X_a,
+    int i,
+    floating[:, ::1] X_b,
+    int j,
     integral n_features,
 ) nogil:
     cdef:
-        int i
+        int k
         floating dist = 0
     
-    for i in range(n_features):
-        dist += fabs(X_a_row[i] - X_b_row[i])
+    for k in range(n_features):
+        dist += fabs(X_a[i][k] - X_b[j][k])
         
     return dist
 
@@ -41,7 +43,7 @@ cdef void _pairwise_dist(
         
     for i in prange(n_rows_X_a, nogil=True):
         for j in range(n_rows_X_b):
-            distances[i, j] = _l1_distance(X_a[i], X_b[j], n_features)
+            distances[i, j] = _l1_distance(X_a, i, X_b, j, n_features)
 
 def pairwise_dist(
     floating[:, ::1] X_a,
