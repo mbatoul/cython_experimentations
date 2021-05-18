@@ -19,7 +19,7 @@ jobs:
         with:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{
-            hashFiles('environment.yml') }}
+            hashFiles('environment.yml') }}-${{ hashFiles('**/*.pyx') }}
 
       - name: Setup miniconda
         uses: conda-incubator/setup-miniconda@v2
@@ -40,7 +40,7 @@ jobs:
           export OPENBLAS_NUM_THREADS=1
 
       - name: Run benchmarks
-        run: python benchmarks/run.py
+        run: python benchmarks
 
       - name: Convert notebook to html
         run: |

@@ -1,10 +1,10 @@
 import numpy
 from Cython.Build import build_ext
-from setuptools import Extension, setup
+from distutils.core import Extension, setup
 
 extensions = [
     Extension(
-        "lib/pairwise_dist",
+        "pdist",
         sources=["src/pairwise_dist/_pairwise_dist.pyx"],
         include_dirs=[numpy.get_include()],
         extra_compile_args=["-fopenmp", "-O3", "-ftree-vectorize"],

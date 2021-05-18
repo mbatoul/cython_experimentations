@@ -62,3 +62,9 @@ MANIFEST
 .vscode
 
 *.csv
+
+*src/**/*.c
+
+*.sh
+
+*.txt
