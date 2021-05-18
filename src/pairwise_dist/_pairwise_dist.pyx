@@ -17,7 +17,7 @@ cdef void _compute_dist(
     for i in range(n_features):
         dist[0] += fabs(X_a_row[i] - X_b_row[i])
 
-cdef void _pairwise_dist_helper(
+cdef void _pairwise_dist(
     floating[:, ::1] X_a, # IN
     floating[:, ::1] X_b, # IN
     floating[:, ::1] distances, # OUT
@@ -33,7 +33,7 @@ cdef void _pairwise_dist_helper(
         for j in range(n_rows_X_b):
             _compute_dist(X_a[i], X_b[j], n_features, &distances[i, j])
 
-def _pairwise_dist(
+def pairwise_dist(
     floating[:, ::1] X_a,
     floating[:, ::1] X_b
 ):
@@ -41,6 +41,6 @@ def _pairwise_dist(
     cdef:
         floating[:, ::1] distances = np.zeros([X_a.shape[0], X_b.shape[0]], dtype=float_dtype)
     
-    _pairwise_dist_helper(X_a, X_b, distances, 42)
+    _pairwise_dist(X_a, X_b, distances, 42)
     
     return np.asarray(distances)
