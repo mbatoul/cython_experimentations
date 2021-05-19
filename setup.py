@@ -10,7 +10,15 @@ extensions = [
         extra_compile_args=["-fopenmp", "-O3", "-ftree-vectorize"],
         extra_link_args=["-fopenmp"],
         define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
-    )
+    ),
+    Extension(
+        "km",
+        sources=["src/kmeans/_kmeans.pyx"],
+        include_dirs=[numpy.get_include()],
+        extra_compile_args=["-fopenmp", "-O3", "-ftree-vectorize"],
+        extra_link_args=["-fopenmp"],
+        define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
+    ),
 ]
 
 setup(
