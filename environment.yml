@@ -2,18 +2,17 @@ name: cython_experimentations
 channels:
   - conda-forge
 dependencies:
-  - black
+  - joblib
+  - compilers
   - jupyter
   - numpy
+  - scikit-learn
   - cython
   - matplotlib
   - seaborn
   - pandas
   - pyaml
-  - joblib
   - scipy
   - pip
   - pip:
-      - --pre
-      - --index-url https://pypi.anaconda.org/scipy-wheels-nightly/simple
-      - scikit-learn
+      - -e ./
