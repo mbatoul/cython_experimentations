@@ -11,7 +11,7 @@ cimport numpy as np
 import numpy as np
 from libc.math cimport fabs
 from cython.parallel cimport prange
-from cython cimport floating, integral
+from cython cimport floating
 cimport cython
 
 cdef floating _l1_distance(
@@ -19,14 +19,14 @@ cdef floating _l1_distance(
     int i,
     floating[:, ::1] X_b,
     int j,
-    integral n_features,
+    int n_features,
 ) nogil:
     cdef:
         int k
         floating dist = 0
     
     for k in range(n_features):
-        dist += fabs(X_a[i][k] - X_b[j][k])
+        dist += fabs(X_a[i, k] - X_b[j, k])
         
     return dist
 
