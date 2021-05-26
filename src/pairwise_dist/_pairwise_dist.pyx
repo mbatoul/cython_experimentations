@@ -14,7 +14,7 @@ from cython.parallel cimport prange
 from cython cimport floating
 cimport cython
 
-cdef floating _l1_distance(
+cdef inline floating _l1_distance(
     floating[:, ::1] X_a,
     int i,
     floating[:, ::1] X_b,
