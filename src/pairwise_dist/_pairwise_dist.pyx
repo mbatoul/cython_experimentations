@@ -24,9 +24,13 @@ cdef inline floating _l1_distance(
     cdef:
         int k
         floating dist = 0
+        int unrolled_upper = (n_features // 4) * 4
     
-    for k in range(n_features):
+    for k in range(0, unrolled_upper, 4):
         dist += fabs(X_a[i, k] - X_b[j, k])
+        dist += fabs(X_a[i, k + 1] - X_b[j, k + 1])
+        dist += fabs(X_a[i, k + 2] - X_b[j, k + 2])
+        dist += fabs(X_a[i, k + 3] - X_b[j, k + 3])
         
     return dist
 
