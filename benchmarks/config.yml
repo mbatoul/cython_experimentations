@@ -1,8 +1,10 @@
 pairwise_dist:
   name: pairwise_dist
   functions:
-    - implementation: cython
-      source: pdist.pairwise_dist
+    - implementation: cython sequential
+      source: pdist.pairwise_dist_sequential
+    - implementation: cython parallel
+      source: pdist.pairwise_dist_parallel
     - implementation: scipy
       source: scipy.spatial.distance.cdist
     - implementation: sklearn sequential
